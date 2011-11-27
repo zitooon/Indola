@@ -1,0 +1,9 @@
+<div id="menu">
+	<ul id="menu-list">
+		<li id="menu_accueil"><%= link_to '', {:controller => 'welcome', :action => 'show'} %><span>Accueil</span></li>
+		<li id="menu_deposer"><%= link_to '', {:controller => 'users', :action => 'new'} %><span>Deposer ma photo</span></li>
+		<li id="menu_voter"><%= link_to '', :controller => 'pictures' %><span>Voter pour une photo</span></li>
+		<li id="menu_lots"><%= link_to '', :controller => 'lots' %><span>Les lots a gagner</span></li>
+		<li id="menu_produits"><%= link_to '', :controller => 'products' %><span>Decouvrir les produits</span></li>
+	</ul>
+</div>

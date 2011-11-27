@@ -1,0 +1,68 @@
+<%= error_messages_for :user, :message => '', :object_name => '', :header_message => 'Veuillez corriger les erreurs suivantes :' %>
+<p style="color: green"><%= flash[:user] %></p>
+
+<% form_for(@user , :html => {:multipart => true}) do |f| %>
+<table width="550px">
+  <tr>
+    <td><b>Pr&eacute;nom<font color='red'>*</font> </b></td><td align="right"><%= f.text_field :firstname, :style => "width:230px" %></td>
+  </tr>
+  <tr>
+    <td><b>Nom<font color='red'>*</font> </b></td><td align="right"><%= f.text_field :lastname, :style => "width:230px" %></td>
+  </tr>
+  <tr>
+    <td><b>Adresse mail<font color='red'>*</font> </b></td><td align="right"><%= f.text_field :email, :style => "width:230px" %></td>
+  </tr>
+  <tr>
+    <td><b>Pseudo<font color='red'>*</font> </b></td><td align="right"><%= f.text_field :username, :style => "width:230px" %></td>
+  </tr>
+  <tr>
+    <td valign="top"><b>Adresse<font color='red'>*</font> </b></td><td align="right"><%= f.text_area :address, :style => "height:40px;width:230px"  %></td>
+  </tr>
+  <tr>
+    <td><b>Code Postal<font color='red'>*</font> </b></td><td align="right"><%= f.text_field :zip, :style => "width:230px" %></td>
+  </tr>
+  <tr>
+    <td><b>Ville<font color='red'>*</font> </b></td><td align="right"><%= f.text_field :city, :style => "width:230px" %></td>
+  </tr>
+  <tr>
+    <td><b>Mon salon Street Tribe </b></td><td align="right"><%= f.text_field :hairdresser, :style => "width:230px" %></td>
+  </tr>
+   <tr>
+	<td><b>T&eacute;l&eacute;charger ma photo<font color='red'>*</font> </b></td><td align="right"><%= file_field_tag :fichier %></td>
+  </tr>
+  <tr>
+	<td colspan=2><%= check_box :rights, :yes, :value => "1" %><small><b> Je certifie avoir les droits de cette photo</b></td></small>
+  </tr>
+  
+  <tr>
+    <td><b>Vous &ecirc;tes<font color='red'>*</font> </b></td><td align="right"><%= f.radio_button :category, :par, :checked => true, :onclick => "Effect.SlideUp('pro')" %><b>un particulier</b><%= f.radio_button :category, :pro, :checked => false, :onclick => "Effect.SlideDown('pro')" %><b>un professionnel</b></td>
+  </tr>
+  </table>
+  <div id="pro" style=" width: 550px;display:none;">
+  <table style=" width: 550px;">
+		  <tr>
+		  <td><b>Nom du salon<font color='red'>*</font> </b></td><td align="right"><%= f.text_field :saloon, :style => "width:230px" %></td>
+		  </tr>
+		  <tr>
+		    <td valign="top"><b>Adresse<font color='red'>*</font> </b></td><td align="right"><%= f.text_area :saloonaddr, :style => "height:40px;width:230px"  %></td>
+		  </tr>
+		  <tr>
+		  <td><b>Code Postal<font color='red'>*</font> </b></td><td align="right"><%= f.text_field :saloonzip, :style => "width:230px" %></td>
+		  </tr>
+		  <tr>
+		    <td><b>Ville<font color='red'>*</font> </b></td><td align="right"><%= f.text_field :salooncity, :style => "width:230px" %></td>
+		  </tr>
+  	</table>
+	</div>
+  <table  style="width: 550px;">
+  <tr>
+	  <td colspan=2><%= check_box :rules, :ok, :value => "1" %><small><b> Je reconnais avoir pris connaissance du <%= link_to 'r&egrave;glement', {:controller => 'regulation', :action => 'show'}, :popup => ['R&egrave;glement', 'height=500,width=500'] %></b></td></small>
+  </tr>
+  <tr>
+    <td colspan=2 align="right"><%= f.submit "Envoyer" %></td>
+  </tr>
+  <tr>
+  	<td colspan=2 style="padding-top:10px;"><small><i>Les coordonn&eacute;es des participants seront saisies sur informatique. Conform&eacute;ment &agrave; la Loi Informatique et Libert&eacute;s du 6 janvier 1978, les participants disposent d'un droit d'acc&egrave;s, de rectification et de retrait des informations nominatives les concernant, en &eacute;crivant &agrave; : SCHWARZKOPF SA - "Concours Photo Street Tribe - Indola" - 161 rue de Silly - 92642 Boulogne-Billancourt Cedex.</i></small></td>
+</tr>
+  </table>
+<% end %>

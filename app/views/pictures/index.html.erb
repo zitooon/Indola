@@ -1,0 +1,39 @@
+<h2>Votez pour la photo la plus d&eacute;coiffante</h2>
+
+<p style="color: green"><%= flash[:cart] %></p>
+<% @photo = 0 %>
+<% for user in @users %>
+	<% @photo += 1 %>
+	<% if @photo >= @start_photo%> 
+		<% if @photo == @break
+			break
+		end%>
+	<div class="box">
+		<div class="box-title"><b><%=h user.username %></b></div>
+		<div class="box-img"><%= link_to image_tag("haircuts/thumbnails/#{user.picture}", :border => 0), {:controller => 'pictures', :action => 'show', :uid => user.id}, :popup => ['Agrandissement', "height=600,width=550"] %></div>
+		<div class="box-vote">
+			<% if user.note > 1 
+				@s = 's'
+				else
+				@s = '' 
+				end %>
+			<%= link_to "&nbsp;&nbsp;&nbsp;"+user.note.to_s+"&nbsp;vote"+@s, {:controller => 'cart', :action => 'addtocart', :page => @page, :h => user}, :method => :post %></div>
+	</div>
+	<% end %>
+<% end %>
+<div class="clear"></div>
+<div id="paginate-container">
+	<% if @page + 1 > 2 %><%= link_to '<<', {:action => 'index'}, :class => "paginate" %><%end%>
+	<% if @page + 1 > 1 %><%= link_to '<', {:action => 'index', :page => @page - 1}, :class => "paginate" %><%end%>
+	<% @i = 0 %>
+	<%while @i%>
+		<div class="paginate"><%= link_to_unless((@page == @i), @i + 1, {:action => 'index', :page => @i}) %></div>
+			<%@i += 1%>
+			<% if @i == @nb_pages
+				break
+			else %>
+			<% end %>
+	<%end%>
+	<% if @page + 1 < @nb_pages %><%= link_to '>', {:action => 'index', :page => @page + 1}, :class => "paginate" %><%end%>
+	<% if @page + 1 < (@nb_pages - 1) %><%= link_to '>>', {:action => 'index', :page => @nb_pages - 1}, :class => "paginate" %><%end%>
+</div>

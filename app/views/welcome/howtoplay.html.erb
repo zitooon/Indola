@@ -1,0 +1,24 @@
+<h2>Comment jouer ?</h2>
+<br/>
+<br/>
+<table>
+	<tr>
+		<td><%= image_tag("macaron-rond1.gif", :border => 0)%>&nbsp;&nbsp;</td>
+		<td>Prenez en photo votre coiffure la plus d&eacute;jant&eacute;e</td>
+	</tr>
+	<tr><td height="10px"></td></tr>
+	<tr>
+		<td><%= image_tag("macaron-rond2.gif", :border => 0)%>&nbsp;&nbsp;</td>
+		<td>Inscrivez vous sur la page <%= link_to '"D&eacute;poser ma photo"', :controller => 'users', :action => 'new' %></td>
+	</tr>
+	<tr><td height="10px"></td></tr>
+	<tr>
+		<td><%= image_tag("macaron-rond3.gif", :border => 0)%>&nbsp;&nbsp;</td>
+		<td><%= link_to 'Votez pour votre photo', :controller => 'pictures' %> et faites voter vos amis en leur faisant <%= link_to 'd&eacute;couvrir le site', :controller => 'friends' %></td>
+	</tr>
+	<tr><td height="10px"></td></tr>
+	<tr>
+		<td><%= image_tag("macaron-rond4.gif", :border => 0)%>&nbsp;&nbsp;</td>
+		<td>D&eacute;couvrez si vous faites parti des vainqueurs &agrave; partir du 16 Juillet sur le site</td>
+	</tr>
+</table>

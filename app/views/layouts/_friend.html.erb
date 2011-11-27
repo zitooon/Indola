@@ -1,0 +1,8 @@
+<%= form_tag :controller=>'friends', :method => :post %>
+		<%= image_tag('friend.gif', :border => 0)%><br/>
+		<div id="inputok">
+		<%= text_field :email, :one,  :style => 'width:138px', :value => 'nom@domaine.com' %> 
+		<%= image_submit_tag("bouton_ok.png", :class => "ok") %>
+		</div>
+</form>
+

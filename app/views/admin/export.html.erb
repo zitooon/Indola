@@ -1,0 +1,118 @@
+<table>
+    <tr>
+      <td width="70"><b>Prenom:</b></td>
+      <td width="70"><b>Nom:</b></td>
+      <td width="200"><b>Email:</b></td>
+      <td width="70"><b>Pseudo:</b></td>
+      <td width="200"><b>Adresse:</b></td>
+      <td width="50"><b>Code Postal:</b></td>
+      <td width="70"><b>Ville:</b></td>
+      <td width="150"><b>Salon Street Tribe:</b></td>
+      <td width="100"><b>Categorie:</b></td>
+      <td width="100"><b>Nom du salon:</b></td>
+      <td width="200"><b>Adresse:</b></td>
+      <td width="50"><b>Code Postal:</b></td>
+      <td width="70"><b>Ville:</b></td>
+      <td width="100"><b>Image:</b></td>
+    </tr>
+<% for user in @users %>
+    <tr>
+        <td><%=h user.firstname %></td>
+	<td><%=h user.lastname %></td>
+	<td><%=h user.email %></td>
+	<td><%=h user.username %></td>
+	<td><%=h user.address %></td>
+	<td><%=h user.zip %></td>
+	<td><%=h user.city %></td>
+	<td><%=h user.hairdresser %></td>
+	<td><%if user.category == 'pro' %>Professionnel<%else%>Particulier<%end%></td>
+	<td><%=h user.saloon %></td>
+	<td><%=h user.saloonaddr %></td>
+	<td><%=h user.saloonzip %></td>
+	<td><%=h user.salooncity %></td>
+	<td><%=h user.picture %></td>
+    </tr>
+<% end %>
+</table>
+
+<%#*<?xml version="1.0"?>%>
+<%#*<ss:Workbook xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">%>
+    <%#*<ss:Styles>%>
+        <%#*<ss:Style ss:ID="1">%>
+            <%#*<ss:Font ss:Bold="1"/>%>
+        <%#*</ss:Style>%>
+    <%#*</ss:Styles>%>
+    <%#*<ss:Worksheet ss:Name="Sheet1">%>
+        <%#*<ss:Table>%>
+            <%#*<ss:Column ss:Width="80"/>%>
+            <%#*<ss:Column ss:Width="80"/>%>
+            <%#*<ss:Column ss:Width="80"/>%>
+            <%#*<ss:Row ss:StyleID="1">%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">First Name</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Last Name</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Phone Number</ss:Data>%>
+                <%#*</ss:Cell>%>
+            <%#*</ss:Row>%>
+            <%#*<ss:Row>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Brian</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Jones</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">(425) 123-4567</ss:Data>%>
+                <%#*</ss:Cell>%>
+            <%#*</ss:Row>%>
+            <%#*<ss:Row>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Chad</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Rothschiller</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">(425) 123-4567</ss:Data>%>
+                <%#*</ss:Cell>%>
+            <%#*</ss:Row>%>
+            <%#*<ss:Row>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Shawn</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Villaron</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">(425) 123-4567</ss:Data>%>
+                <%#*</ss:Cell>%>
+            <%#*</ss:Row>%>
+            <%#*<ss:Row>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Scott</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Walker</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">(425) 123-4567</ss:Data>%>
+                <%#*</ss:Cell>%>
+            <%#*</ss:Row>%>
+            <%#*<ss:Row>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Kevin</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">Boske</ss:Data>%>
+                <%#*</ss:Cell>%>
+                <%#*<ss:Cell>%>
+                    <%#*<ss:Data ss:Type="String">(425) 123-4567</ss:Data>%>
+                <%#*</ss:Cell>%>
+            <%#*</ss:Row>%>
+        <%#*</ss:Table>%>
+    <%#*</ss:Worksheet>%>
+<%#*</ss:Workbook>%>

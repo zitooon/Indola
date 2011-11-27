@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= controller.controller_name %></title>
+  <%= stylesheet_link_tag 'main' %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+	<div id="container">
+		<div id="left-container">
+			<%= render :partial => "layouts/menu" %>
+			<div id="friend">
+					<%= render :partial => "layouts/friend" %>
+				</div>
+		 	</div>
+		<div id="content-container">
+			<% if controller.controller_name == 'vote' and Cart.count(:all, :conditions => ["ip = ? AND position != ?", request.remote_ip, 0]) > 0 and Cart.count(:all, :conditions => ["ip = ? AND position != ?", request.remote_ip, 0]) < 3 and Cart.count(:all, :conditions => ["ip = ? AND position = ?", request.remote_ip, 0]) > 0 %>
+				<div id="selection-container">
+					<div id="selection-title"><%= image_tag('mon-podium.png', :border => 0) %></div><div id="selection"><%= render :partial => "layouts/classement" %></div>
+				</div>
+			<% elsif controller.controller_name == 'pictures' and Cart.count(:all, :conditions => ["ip = ?", request.remote_ip]) > 0 %>
+				<div id="selection-container">
+					<div id="selection-title"><%= image_tag('ma-selection.png', :border => 0) %></div><div id="selection"><%= render :partial => "layouts/cart" %></div>
+				</div>
+			<%end%>
+			<div id="content">
+				<% if flash[:notice]%>
+					<%= render :partial => "layouts/notice" %>
+				<%end%>
+				<%= yield  %>
+			</div>
+		</div>
+		<div id="tete"></div>	
+		<div id="footer"><%= render :partial => "layouts/footer" %></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<% @carts = Cart.find(:all, :conditions => ["ip = ? AND position != ?", request.remote_ip, 0], :order => "position DESC")%>
+	<% for cart in @carts %>
+		<% @user = User.find(cart.voted_user_id)%>
+		<div class="mini">
+		<%= image_tag(cart.position.to_s+".gif", :border => 0) %>
+		</div>
+		<div class="mini">
+		<%= image_tag("haircuts/thumbnails_sel/#{@user.picture}", :border => 0)%>
+		</div>
+	<% end %>
+<%= link_to image_tag('bouton_voter.png', :border=>0, :class => "voter"), {:action => 'validate'}, :method => :post %>
+<%= link_to image_tag('bouton-annuler.png', :border=>0, :class => "voter"), {:action => 'cancel'}, :method => :post %>

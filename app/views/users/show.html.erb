@@ -1,0 +1,77 @@
+<table>
+<tr>
+<td>
+<p>
+  <b>Pr&eacute;nom:</b>
+  <%=h @user.firstname %>
+</p>
+
+<p>
+  <b>Nom:</b>
+  <%=h @user.lastname %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+
+<p>
+  <b>Pseudo:</b>
+  <%=h @user.username %>
+</p>
+
+<p>
+  <b>Adresse:</b>
+  <%=h @user.address %>
+</p>
+
+<p>
+  <b>Code postal:</b>
+  <%=h @user.zip %>
+</p>
+
+<p>
+  <b>Ville:</b>
+  <%=h @user.city %>
+</p>
+
+<p>
+  <b>Salon street tribe:</b>
+  <%=h @user.hairdresser %>
+</p>
+
+<p>
+	<b>Cat&eacute;gorie:</b>
+	<%if @user.category == 'pro' %>Professionnel<%else%>Particulier<%end%>
+</p>
+
+<%if @user.category == 'pro' %>
+	<p>
+	<b>Nom du salon:</b>
+	<%=h @user.saloon %>
+</p>
+	<p>
+	<b>Adresse:</b>
+	<%=h @user.saloonaddr %>
+</p>
+	<p>
+	<b>Code Postal:</b>
+	<%=h @user.saloonzip %>
+</p>
+	<p>
+	<b>Ville:</b>
+	<%=h @user.salooncity %>
+</p>
+	<%end%>
+
+<%= link_to 'Back', :controller => 'admin' %>
+</td>
+<td>
+<p>
+<%= image_tag("haircuts/#{@user.picture}", :border => 0)%>
+</p>
+</td>
+</tr>
+</table>
+

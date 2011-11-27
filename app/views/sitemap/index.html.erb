@@ -1,0 +1,12 @@
+<div id="sitemap">
+	<%= link_to '', {:controller => 'welcome', :action => 'show'}, :id => 'sitemap-accueil' %>
+	<%= link_to '', {:controller => 'welcome', :action => 'howtoplay'}, :method => :post, :id => 'sitemap-comment' %>
+	<%= link_to '', {:controller => 'users', :action => 'new'}, :method => :post, :id => 'sitemap-deposer' %>
+	<%= link_to '', {:controller => 'pictures'}, :id => 'sitemap-voter' %>
+	<%= link_to '', {:controller => 'products'}, :id => 'sitemap-products'%>
+	<%= link_to '', {:controller => 'lots'}, :id => 'sitemap-lots'%>
+	<%= link_to '', {:controller => 'friends'}, :id => 'sitemap-friend'%>
+	<%= link_to '', "http://fr.indola.com/",:target => '_blank', :id => 'sitemap-indola' %>
+	<%= link_to '', {:controller => 'contact'}, :id => 'sitemap-contact'%>
+	<%= link_to '', {:controller => 'regulation'}, :id => 'sitemap-rules' %>
+</div>

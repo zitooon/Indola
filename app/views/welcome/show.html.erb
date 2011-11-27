@@ -1,0 +1,37 @@
+<%= link_to "Voir le classement!", {:action => 'classement'}, :method => :post, :id => 'macaron' %>
+<h2>Le podium des particuliers</h2>
+
+<% i = 1 %>
+<% for user in @userspar %>
+	<div id="box<%= i %>">
+		<b><%= i %></b>
+		<div class="box-title"><b><%=h user.username %></b></div>
+		<div class="box-img"><%= link_to image_tag("haircuts/thumbnails/#{user.picture}", :border => 0), {:controller => 'pictures', :action => 'show', :uid => user.id}, :popup => ['Agrandissement', "height=600,width=550"] %></div>
+		<div class="box-vote">
+			<% if user.note > 1 
+				@s = 's'
+				else
+				@s = '' 
+				end %>
+			<%= link_to "&nbsp;&nbsp;&nbsp;"+user.note.to_s+"&nbsp;vote"+@s, {:controller => 'cart', :action => 'addtocart', :page => @page, :h => user}, :method => :post  %></div>
+	</div>
+<% i += 1 %>
+<% end %>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<h2>Le podium des professionnels</h2>
+<% i = 1 %>
+<% for user in @userspro %>
+<div id="box<%= i %>">
+		<b><%= i %></b>
+		<div class="box-title"><b><%=h user.username %></b></div>
+		<div class="box-img"><%= link_to image_tag("haircuts/thumbnails/#{user.picture}", :border => 0), {:controller => 'pictures', :action => 'show', :uid => user.id}, :popup => ['Agrandissement', "height=600,width=550"] %></div>
+		<div class="box-vote">
+			<% if user.note > 1 
+				@s = 's'
+				else
+				@s = '' 
+				end %>
+			<%= link_to "&nbsp;&nbsp;&nbsp;"+user.note.to_s+"&nbsp;vote"+@s %></div>
+	</div>
+	<% i += 1 %>
+	<% end %>

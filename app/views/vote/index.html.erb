@@ -1,0 +1,19 @@
+<% if Cart.count(:all, :conditions => ["ip = ? AND position != ?", request.remote_ip, 0]) < 3 %>
+	<h3><%= flash[:vote] %></h3>
+	<% @carts = Cart.find(:all, :conditions => ["ip = ? AND position = ?", request.remote_ip, 0])%>
+	<% for cart in @carts %>
+		<% @user = User.find(cart.voted_user_id)%>
+		<div class="box">
+			<div class="box-title"><b><%=h @user.username %></b></div>
+			<div class="box-img"><%= link_to image_tag("haircuts/thumbnails/#{@user.picture}", :border => 0), {:controller => 'pictures', :action => 'show', :uid => @user.id}, :popup => ['Agrandissement', "height=600,width=550"] %></div>
+			<div class="box-vote">
+				<% if @user.note > 1 
+					@s = 's'
+				else
+					@s = '' 
+				end %>
+				<%= link_to "&nbsp;&nbsp;&nbsp;"+@user.note.to_s+"&nbsp;vote"+@s, {:action => 'defposition', :h => cart}, :method => :post %>
+			</div>
+		</div>
+	<% end %>
+<%end%>

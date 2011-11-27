@@ -1,0 +1,46 @@
+<h2>Le classement</h2>
+
+<h3>Les particuliers</h3>
+<hr/>
+
+<% i = 1 %>
+<table width="100%">
+<% for user in @userspar %>
+<tr <% if i%2 == 0 %>bgcolor="#eeeeee"<%end%>>
+	<td align="center"><b><%= i %></b></td>
+	<td align="center"><b><%=h user.username %></b></td>
+	<td align="center"><%= link_to image_tag("haircuts/thumbnails/#{user.picture}", :border => 0), {:controller => 'pictures', :action => 'show', :uid => user.id}, :popup => ['Agrandissement', "height=600,width=550"] %></td>
+	<td align="center"><% if user.note > 1 
+				@s = 's'
+				else
+				@s = '' 
+				end %>
+			<%= "&nbsp;&nbsp;&nbsp;"+user.note.to_s+"&nbsp;vote"+@s %>
+			</td>
+<% i += 1 %>
+</tr>
+<% end %>
+</table>
+
+<br/><br/>
+<h3>Les professionnels</h3>
+<hr/>
+<% i = 1 %>
+<table width="100%" border="0">
+<% for user in @userspro %>
+<tr <% if i%2 == 0 %>bgcolor="#eeeeee"<%end%>>
+	<td align="center"><b><%= i %></b></td>
+	<td align="center"><b><%=h user.username %></b></td>
+	<td align="center"><%= link_to image_tag("haircuts/thumbnails/#{user.picture}", :border => 0), {:controller => 'pictures', :action => 'show', :uid => user.id}, :popup => ['Agrandissement', "height=600,width=550"] %></td>
+	<td align="center"><% if user.note > 1 
+				@s = 's'
+				else
+				@s = '' 
+				end %>
+			<%= "&nbsp;&nbsp;&nbsp;"+user.note.to_s+"&nbsp;vote"+@s %>
+			</td>
+<% i += 1 %>
+</tr>
+<% end %>
+</table>
+	

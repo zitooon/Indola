@@ -1,0 +1,25 @@
+<h3>Faire d&eacute;couvrir ce site &agrave; un ami</h3>
+<p style="color: green"><%= flash[:friend] %></p>
+<%= form_tag :action => 'sendemail', :method => :post %>
+<p>Adresse mail de votre ami<font color='red'>*</font> <%= text_field :email, :one,  :style => "width:200px;", :value => @firstemail  %>
+<div id="add"><%= link_to_function '+ Ajouter d\'autres adresses', 'Effect.SlideDown("mail");Effect.SlideUp("add")' %></div></p>
+  <div id="mail" style="width:550px;display:none;">
+  	<p><%= link_to_function '- Cacher les adresses', 'Effect.SlideUp("mail");Effect.SlideDown("add")' %>
+	<div class="email" >2&egrave;me adresse  <%= text_field :email, :two, :style => "width:250px;" %></div>
+	<div class="email" >3&egrave;me adresse  <%= text_field :email, :three, :style => "width:250px;" %></div>
+	<div class="email" >4&egrave;me adresse  <%= text_field :email, :four, :style => "width:250px;" %></div>
+	<div class="email" >5&egrave;me adresse  <%= text_field :email, :five, :style => "width:250px;" %></div></p>
+ </div>
+<p>Votre pr&eacute;nom<font color='red'>*</font> <%= text_field :name, :first, :style => "width:150px;", :value => @name  %>
+ &nbsp;&nbsp;&nbsp;&nbsp;<%= submit_tag "Envoyer" %></p>
+ <div class="mailbox">
+	<div class="mail">
+ 		Salut,
+		<br/><br/>J'ai d&eacute;pos&eacute; la photo de ma coiffure la plus d&eacute;jant&eacute;e sur <a href="http://www.street-tribe.fr">www.street-tribe.fr</a>, viens la voir et voter pour moi !
+		<br/><br/>Toi aussi tu peux d&eacute;poser gratuitement ta photo et tenter de gagner un week-end &agrave; Londres, un iPod Nano, un iPod Shuffle ou des produits coiffants Street Tribe !
+		<br/><br/>Rejoins la Tribu !
+		<br/><br/>A bient&ocirc;t
+		<br/><br/>(Votre Nom)
+	</div>
+</div>
+ </form>

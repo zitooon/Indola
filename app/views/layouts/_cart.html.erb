@@ -1,0 +1,9 @@
+<% @carts = Cart.find(:all, :conditions => ["ip = ?", request.remote_ip])%>
+	<% for cart in @carts %>
+		<% @user = User.find(cart.voted_user_id)%>
+		<div class="mini">
+			<%= link_to image_tag("delete.gif", :border => 0, :class => 'delete'), {:controller => 'cart', :action => 'delfromcart', :page => @page, :h => cart}, :method => :post %>
+		<%= link_to image_tag("haircuts/thumbnails_sel/#{@user.picture}", :border => 0, :class => "cart"), {:controller => 'cart', :action => 'delfromcart', :page => @page, :h => cart}, :method => :post %>
+		</div>
+	<% end %>
+<%= link_to image_tag("bouton_voter.png", :border => 0, :class => "voter"), {:controller => 'vote', :action => 'index'}, :method => :get %>

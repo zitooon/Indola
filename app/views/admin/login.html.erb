@@ -1,0 +1,17 @@
+<h3>Login webmin</h3>
+<br />
+<p style="color: green"><%= flash[:admin] %></p>
+
+<% form_tag :action => 'login' do %>
+	<%= error_messages_for 'login' %>
+	
+	<label for="admin">Username</label><br/>
+	<%= text_field 'admin', 'name'  %>
+<br/>
+		<label for="admin">Password</label><br/>
+	<%= password_field 'admin', 'password'  %>
+<br/>
+<br/>
+  <%= submit_tag "Login" %>
+<% end %>
+		

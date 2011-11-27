@@ -1,0 +1,3 @@
+SubscriptionMailer#confirmation
+
+Find me in app/views/subscription_mailer/confirmation.erb

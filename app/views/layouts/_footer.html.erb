@@ -1,0 +1,7 @@
+<div class="footer"><p><%= link_to 'R&egrave;glement', :controller => 'regulation' %>&nbsp;&nbsp;|&nbsp;&nbsp;
+<!-- <%= link_to 'Plan du site', :controller => 'sitemap' %>&nbsp;&nbsp;|&nbsp;&nbsp;  -->
+<%= link_to 'Contact', :controller => 'contact' %>&nbsp;&nbsp; |&nbsp;&nbsp;  
+<%= link_to 'Site Indola', "http://fr.indola.com/",:target => '_blank' %>
+<% if session[:admin] %>
+	&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to 'Logout webmin', {:controller => 'admin', :action => 'logout'}, :method => :post %>
+<% end %></p></div>

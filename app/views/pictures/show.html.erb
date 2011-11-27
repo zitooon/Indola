@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<title><%= @user.picture %></title>
+		<%= stylesheet_link_tag 'main' %>
+	</head>
+	<body>
+		<div class="show-box">
+			<div class="show-box-title"><b><%=h @user.username %></b></div>
+			<div class="show-box-img"><%= image_tag("haircuts/#{@user.picture}", :border => 0) %></div>
+			<div class="show-box-vote">
+				<% if @user.note > 1 
+						@s = 's'
+				else
+					@s = '' 
+				end %>
+				<%= "Nombre de vote"+@s+":&nbsp;"+@user.note.to_s %>
+			</div>
+		</div>
+	</body>
+</html>
